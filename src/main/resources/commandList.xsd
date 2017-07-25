@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/commandList"
+	xmlns:tns="http://www.example.org/commandList" elementFormDefault="qualified">
+	<element name="commands">
+		<complexType>
+			<sequence>
+				<element name="type" type="tns:Type" minOccurs="1"
+					maxOccurs="4" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="Type">
+		<sequence>
+			<element name="command" type="tns:Command" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="id">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="guestCommands" />
+					<enumeration value="userCommands" />
+					<enumeration value="adminCommands" />
+					<enumeration value="superAdminCommands" />
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+	<complexType name="Command">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="enumInterpretation" type="string" />
+			<element name="description" type="string" />
+			<element name="commandPath" type="string" />
+		</sequence>
+		<attribute name="id" type="ID" use="required" />
+	</complexType>
+</schema>

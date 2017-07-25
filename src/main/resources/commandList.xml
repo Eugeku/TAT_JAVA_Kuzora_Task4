@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands xmlns="http://www.example.org/commandList" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/commandList commandList.xsd">
+	<type id="guestCommands">
+		<command id="G1">
+			<name>Login</name>
+			<enumInterpretation>LOGIN</enumInterpretation>
+			<description>Logging in system with login and password</description>
+			<commandPath>com.epam.library.command.impl.guest.</commandPath>
+		</command>
+		<command id="G2">
+			<name>Registration</name>
+			<enumInterpretation>REGISTRATION</enumInterpretation>
+			<description>Registration in system with name, second name, login and password</description>
+			<commandPath>com.epam.library.command.impl.guest.</commandPath>
+		</command>
+		<command id="G3">
+			<name>ViewAllBooks</name>
+			<enumInterpretation>VIEW_ALL_BOOKS</enumInterpretation>
+			<description>Guest command for viewing list of all books</description>
+			<commandPath>com.epam.library.command.impl.guest.</commandPath>
+		</command>
+		<command id="G4">
+			<name>WrongCommand</name>
+			<enumInterpretation>WRONGCCOMMAND</enumInterpretation>
+			<description>Default wrong command</description>
+			<commandPath>com.epam.library.command.impl.guest.</commandPath>
+		</command>
+	</type>
+	<type id="userCommands">
+		<command id="U1">
+			<name>Logout</name>
+			<enumInterpretation>LOGOUT</enumInterpretation>
+			<description>Logout from system</description>
+			<commandPath>com.epam.library.command.impl.user.</commandPath>
+		</command>
+		<command id="U2">
+			<name>OrderBook</name>
+			<enumInterpretation>ORDER_BOOK</enumInterpretation>
+			<description>Ordering available book with userId and bookId</description>
+			<commandPath>com.epam.library.command.impl.user.</commandPath>
+		</command>
+		<command id="U3">
+			<name>UpdateInfo</name>
+			<enumInterpretation>UPDATE_USER_INFO</enumInterpretation>
+			<description>Update user info with name,second name, login, id,
+				password</description>
+			<commandPath>com.epam.library.command.impl.user.</commandPath>
+		</command>
+		<command id="U4">
+			<name>ViewAllOrders</name>
+			<enumInterpretation>VIEW_ALL_ORDERS</enumInterpretation>
+			<description>Viewing all orders</description>
+			<commandPath>com.epam.library.command.impl.user.</commandPath>
+		</command>
+		<command id="U5">
+			<name>ViewAllBooks</name>
+			<enumInterpretation>VIEW_ALL_BOOKS</enumInterpretation>
+			<description>Command for viewing list of all books</description>
+			<commandPath>com.epam.library.command.impl.guest.</commandPath>
+		</command>
+	</type>
+	<type id="adminCommands">
+		<command id="A1">
+			<name>AddBook</name>
+			<enumInterpretation>ADD_BOOK</enumInterpretation>
+			<description>Adding book with book name, author, status available</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+		<command id="A2">
+			<name>BanUser</name>
+			<enumInterpretation>BAN_USER</enumInterpretation>
+			<description>Banning user using user id</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+		<command id="A3">
+			<name>ChangeBookStatus</name>
+			<enumInterpretation>CHANGE_BOOK_STATUS</enumInterpretation>
+			<description>Changing book status on opposite using present status id
+				and book id
+			</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+		<command id="A4">
+			<name>ReturnOrder</name>
+			<enumInterpretation>RETURN_ORDER</enumInterpretation>
+			<description>Return order using order id and book id</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+		<command id="A5">
+			<name>SendOrder</name>
+			<enumInterpretation>CONFIRM_ORDER</enumInterpretation>
+			<description>Send order using order</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+		<command id="A6">
+			<name>UnBanUser</name>
+			<enumInterpretation>UNBAN_USER</enumInterpretation>
+			<description>Unbanning user using user id</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+		<command id="A7">
+			<name>ViewAllUsers</name>
+			<enumInterpretation>VIEW_ALL_USERS</enumInterpretation>
+			<description>Viewing list of all users</description>
+			<commandPath>com.epam.library.command.impl.admin.</commandPath>
+		</command>
+	</type>
+	<type id="superAdminCommands">
+		<command id="SA1">
+			<name>GiveAdminForUser</name>
+			<enumInterpretation>GIVE_ADMIN</enumInterpretation>
+			<description>Give admin access for user using user id</description>
+			<commandPath>com.epam.library.command.impl.superAdmin.</commandPath>
+		</command>
+	</type>
+</commands>
