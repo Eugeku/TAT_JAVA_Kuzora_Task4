@@ -6,9 +6,7 @@
  * 2) {@link com.epam.library.guicontroller.CommandParser}; <br>
  * 3) {@link com.epam.library.guicontroller.CommandProvider};<br>
  * 4) {@link com.epam.library.guicontroller.Controller};<br>
- * 5) {@link com.epam.library.guicontroller.GuiController};<br>
- * 6) {@link com.epam.library.guicontroller.LabelMessage}. <br>
- * 7) {@link com.epam.library.guicontroller.xmlparser}
+ * 5) {@link com.epam.library.guicontroller.xmlparser}
  * <p>
  * <i>Management for controller layer leads from view layer</i>
  */

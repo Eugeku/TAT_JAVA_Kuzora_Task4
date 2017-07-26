@@ -2,8 +2,6 @@ package com.epam.library.guicontroller.xmlparser.parsers.bean;
 
 import java.io.Serializable;
 
-import com.epam.library.bean.AccessLevel;
-
 /**
  * Beans Class {@link XMLCommand}.
  * <P>

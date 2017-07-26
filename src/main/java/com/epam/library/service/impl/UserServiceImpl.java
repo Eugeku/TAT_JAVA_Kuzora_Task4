@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * Implementation of banUser method.
 	 * 
-	 * @return
+	 * @return boolean value as result of executing
 	 */
 	@Override
 	public boolean banUser(int userId) throws ServiceException {
@@ -123,7 +123,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * Implementation of unBanUser method.
 	 * 
-	 * @return
+	 * @return boolean value as result of executing
 	 */
 	@Override
 	public boolean unBanUser(int userId) throws ServiceException {
@@ -140,7 +140,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * Implementation of giveAdminForUser method.
 	 * 
-	 * @return
+	 * @return boolean value as result of executing
 	 */
 	@Override
 	public boolean giveAdminForUser(int userId) throws ServiceException {
