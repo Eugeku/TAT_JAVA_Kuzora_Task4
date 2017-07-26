@@ -102,8 +102,6 @@ public class OrdersSQLDAO implements OrdersDAO {
 
 	/**
 	 * Implementation of addOrder method.
-	 * 
-	 * @return boolean value as result of successfully execution
 	 */
 	@Override
 	public synchronized boolean addOrder(int userId, int bookId) throws DAOException {

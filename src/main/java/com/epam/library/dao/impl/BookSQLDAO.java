@@ -137,6 +137,9 @@ public class BookSQLDAO implements BookDAO {
 		}
 	}
 
+	/**
+	 * Implementation of isAvailiableStatus method.
+	 */
 	@Override
 	public synchronized boolean isAvailiableStatus(int bookId) throws DAOException {
 		PreparedStatement pSt = null;
