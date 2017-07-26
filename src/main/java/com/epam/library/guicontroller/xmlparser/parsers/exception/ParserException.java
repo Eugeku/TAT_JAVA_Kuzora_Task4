@@ -1,4 +1,4 @@
-package com.epam.library.guicontroller.xmlparser.parsers;
+package com.epam.library.guicontroller.xmlparser.parsers.exception;
 
 public class ParserException extends Exception {
 

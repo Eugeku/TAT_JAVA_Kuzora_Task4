@@ -1,27 +1,47 @@
-/**
- * 
- */
 package com.epam.library.guicontroller.xmlparser.parsers.bean;
 
 import java.io.Serializable;
 
+import com.epam.library.bean.AccessLevel;
+
 /**
- * @author Eugene13
- *
+ * Beans Class {@link XMLCommand}.
+ * <P>
+ * Class XMLCommand includes 5 fields ({@link #serialVersionUID}, {@link #name},
+ * {@link #enumInterpretation}, {@link #description}, {@link #commandPath}),
+ * getters and setters for changeable fields, methods {@link #hashCode()} and
+ * {@link #equals(Object)}.
+ * <P>
+ * <i>This Class is a member of the
+ * {@link com.epam.library.guicontroller.xmlparser.parsers.bean} package.</i>
  */
 public class XMLCommand implements Serializable {
-
+	/**
+	 * SerialVersionUID for object of {@link XMLCommand} Class.
+	 */
 	private static final long serialVersionUID = -7621251609058733391L;
-
+	/**
+	 * Contains name of command as name of Class where this command is
+	 * implemented.
+	 */
 	private String name;
-
+	/**
+	 * Contains name of command as enumeration name from
+	 * {@link com.epam.library.guicontroller.CommandName}.
+	 */
 	private String enumInterpretation;
-
+	/**
+	 * Contains description of command.
+	 */
 	private String description;
-
+	/**
+	 * Contains path where command is implemented.
+	 */
 	private String commandPath;
 
 	/**
+	 * Getter getName.
+	 * 
 	 * @return the name
 	 */
 	public String getName() {
@@ -29,6 +49,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Setter setName.
+	 * 
 	 * @param name
 	 *            the name to set
 	 */
@@ -37,6 +59,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Getter getEnumInterpretation.
+	 * 
 	 * @return the enumInterpretation
 	 */
 	public String getEnumInterpretation() {
@@ -44,6 +68,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Setter enumInterpretation.
+	 * 
 	 * @param enumInterpretation
 	 *            the enumInterpretation to set
 	 */
@@ -52,6 +78,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Getter getDescription.
+	 * 
 	 * @return the description
 	 */
 	public String getDescription() {
@@ -59,6 +87,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Setter setDescription.
+	 * 
 	 * @param description
 	 *            the description to set
 	 */
@@ -67,6 +97,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Getter getCommandPath.
+	 * 
 	 * @return the commandPath
 	 */
 	public String getCommandPath() {
@@ -74,6 +106,8 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
+	 * Setter setCommandPath.
+	 * 
 	 * @param commandPath
 	 *            the commandPath to set
 	 */
@@ -82,16 +116,9 @@ public class XMLCommand implements Serializable {
 	}
 
 	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/*
-	 * (non-Javadoc)
+	 * Method hashCode.
 	 * 
-	 * @see java.lang.Object#hashCode()
+	 * @return unique hashCode for {@link XMLCommand} object
 	 */
 	@Override
 	public int hashCode() {
@@ -104,10 +131,13 @@ public class XMLCommand implements Serializable {
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Method equals.
 	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @param obj
+	 *            the reference object with which to compare
+	 * @return boolean value as the result of comparing {@link XMLCommand}
+	 *         objects
 	 */
 	@Override
 	public boolean equals(Object obj) {

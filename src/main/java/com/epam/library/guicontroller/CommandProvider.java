@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import com.epam.library.command.exception.CommandException;
 import com.epam.library.command.interfaces.Command;
-import com.epam.library.guicontroller.xmlparser.parsers.ParserException;
+import com.epam.library.guicontroller.xmlparser.parsers.exception.ParserException;
+import com.epam.library.guicontroller.xmlparser.parsers.ParserFactory;
 import com.epam.library.guicontroller.xmlparser.parsers.bean.XMLCommand;
-import com.epam.library.guicontroller.xmlparser.parsers.dom.DOMCommandParser;
 
 /**
  * Class {@link CommandProvider}.
@@ -23,17 +23,29 @@ public class CommandProvider {
 	private static final String USER_COMMAND_GROUP = "userCommands";
 	private static final String ADMIN_COMMAND_GROUP = "adminCommands";
 	private static final String SUPER_ADMIN_COMMAND_GROUP = "superAdminCommands";
+	private static final String PATH_TO_XML_FILE = "/commandList.xml";
+	/**
+	 * Contains HashMap of guest commands.
+	 */
 	private Map<CommandName, Command> guestCommands = new HashMap<>();
+	/**
+	 * Contains HashMap of user commands.
+	 */
 	private Map<CommandName, Command> userCommands = new HashMap<>();
+	/**
+	 * Contains HashMap of admin commands.
+	 */
 	private Map<CommandName, Command> adminCommands = new HashMap<>();
+	/**
+	 * Contains HashMap of super admin commands.
+	 */
 	private Map<CommandName, Command> superAdminCommands = new HashMap<>();
 	private static final CommandProvider instance = new CommandProvider();
 
 	private CommandProvider() {
 		try {
-			HashMap<String, ArrayList<XMLCommand>> commandList = DOMCommandParser.getListOfCommand("/commandList.xml");
+			HashMap<String, ArrayList<XMLCommand>> commandList = ParserFactory.getInstance().getDOMCommandParser().getListOfCommand(PATH_TO_XML_FILE);
 			for (Map.Entry<String, ArrayList<XMLCommand>> entry : commandList.entrySet()) {
-				System.out.println(entry.getKey() + "  " + entry.getValue());
 				String commandGroup = entry.getKey();
 				ArrayList<XMLCommand> commands = entry.getValue();
 				switch (commandGroup) {
@@ -54,35 +66,8 @@ public class CommandProvider {
 			adminCommands.putAll(userCommands);
 			superAdminCommands.putAll(adminCommands);
 		} catch (ParserException e) {
+			/* Not for user info about parser exception */
 		}
-		//
-		// Guest or banned user
-		// guestCommands.put(CommandName.LOGIN, new Login());
-		// guestCommands.put(CommandName.REGISTRATION, new Registration());
-		// guestCommands.put(CommandName.VIEW_ALL_BOOKS, new ViewAllBooks());
-		//
-		// User
-		// userCommands.put(CommandName.LOGOUT, new Logout());
-		// userCommands.put(CommandName.UPDATE_USER_INFO, new UpdateInfo());
-		// userCommands.put(CommandName.VIEW_ALL_BOOKS, new ViewAllBooks());
-		// userCommands.put(CommandName.VIEW_ALL_ORDERS, new ViewAllOrders());
-		// userCommands.put(CommandName.ORDER_BOOK, new OrderBook());
-		//
-		// Admin
-		// adminCommands.putAll(userCommands);
-		// adminCommands.put(CommandName.VIEW_ALL_USERS, new ViewAllUsers());
-		// adminCommands.put(CommandName.CHANGE_BOOK_STATUS, new
-		// ChangeBookStatus());
-		// adminCommands.put(CommandName.CONFIRM_ORDER, new SendOrder());
-		// adminCommands.put(CommandName.RETURN_ORDER, new ReturnOrder());
-		// adminCommands.put(CommandName.BAN_USER, new BanUser());
-		// adminCommands.put(CommandName.UNBAN_USER, new UnBanUser());
-		// adminCommands.put(CommandName.ADD_BOOK, new AddBook());
-		//
-		// SuperAdmin
-		// superAdminCommands.putAll(adminCommands);
-		// superAdminCommands.put(CommandName.GIVE_ADMIN, new
-		// GiveAdminForUser());
 	}
 
 	/**
@@ -106,6 +91,7 @@ public class CommandProvider {
 					defaultMap.put(name, builder);
 				}
 			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+				/* Not for user info about reflection exceptions */
 			}
 		}
 		return defaultMap;
