@@ -6,9 +6,6 @@ import java.util.HashMap;
 import org.xml.sax.SAXException;
 import com.epam.library.guicontroller.xmlparser.parsers.bean.XMLCommand;
 import com.epam.library.guicontroller.xmlparser.parsers.exception.ParserException;
-import com.epam.library.service.exception.ServiceException;
-import com.epam.library.service.interfaces.User;
-
 import org.apache.xerces.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,7 +19,7 @@ import org.w3c.dom.NodeList;
  * {@link #getSingleChild(Element, String)}).
  * <P>
  * <i>This interface is a member of the
- * {@link com.epam.library.service.interfaces} package.</i>
+ * {@link com.epam.library.guicontroller.xmlparser.parsers.dom} package.</i>
  */
 public class DOMCommandParser {
 	/**
@@ -31,6 +28,8 @@ public class DOMCommandParser {
 	 * 
 	 * @return object of HashMap<{@link String}, ArrayList<{@link XMLCommand}>>
 	 *         type
+	 * @param file_path
+	 *            path to xml file
 	 * @throws ParserException
 	 *             Exception type for XML parser
 	 */
@@ -69,7 +68,7 @@ public class DOMCommandParser {
 	 * 
 	 * @param element
 	 *            object of {@link Element} type from XML file
-	 * @return object of {@link MLCommand} type
+	 * @return object of {@link XMLCommand} type
 	 */
 	private XMLCommand getCommand(Element element) {
 		XMLCommand command = new XMLCommand();
@@ -87,7 +86,7 @@ public class DOMCommandParser {
 	 *            object of {@link Element} type from XML file
 	 * @param childName
 	 *            name of child element
-	 * @return object of {@link MLCommand} type
+	 * @return object of {@link XMLCommand} type
 	 */
 	private Element getSingleChild(Element element, String childName) {
 		NodeList nlist = element.getElementsByTagName(childName);
