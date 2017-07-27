@@ -17,7 +17,7 @@ import java.util.concurrent.Future;
  */
 public class Server {
 	/**
-	 * Unique server port.
+	 * Unique server port. Using not yet implemented.
 	 */
 	private int port;
 	/**
