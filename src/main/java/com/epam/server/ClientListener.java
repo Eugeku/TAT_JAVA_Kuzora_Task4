@@ -8,7 +8,7 @@ import com.epam.library.guicontroller.Controller;
  * Class {@link ClientListener}.
  * <P>
  * Class ClientListener implements {@link Callable} for realization
- * multithreading logic.
+ * multithreading logic. Listen connection from connection pool to server.
  * <P>
  * <i>This Class is a member of the {@link com.epam.server} package.</i>
  */
