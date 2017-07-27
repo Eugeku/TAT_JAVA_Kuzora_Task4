@@ -170,7 +170,7 @@ public class Server {
 	/**
 	 * Private method getUniqueRequestId.
 	 * 
-	 * This method exists for getting unique request id for each one.
+	 * This method exists for getting unique request id for each one using cool myself algorithm.
 	 * 
 	 * @param userIp
 	 *            unique user id
