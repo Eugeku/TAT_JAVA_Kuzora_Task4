@@ -57,7 +57,7 @@ public class ClientListener implements Callable<String> {
 	 * Method addRequest.
 	 * 
 	 * Synchronized method using simple {@link #requestExecuteFlag} boolean
-	 * field.
+	 * field. Adds request.
 	 * 
 	 * @param request
 	 *            String line with command
