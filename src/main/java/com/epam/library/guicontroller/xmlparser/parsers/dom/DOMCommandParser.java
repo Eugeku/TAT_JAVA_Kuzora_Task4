@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
  */
 public class DOMCommandParser {
 	/**
-	 * MethodgetListOfCommand parses XML file and returns {@link HashMa}p with
+	 * MethodgetListOfCommand parses XML file and returns {@link HashMap}p with
 	 * some arrayList<{@link XMLCommand}>.
 	 * 
 	 * @return object of HashMap<{@link String}, ArrayList<{@link XMLCommand}>>
