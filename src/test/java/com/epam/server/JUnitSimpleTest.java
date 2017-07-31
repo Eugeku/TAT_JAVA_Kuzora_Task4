@@ -19,5 +19,4 @@ public class JUnitSimpleTest {
         message = "Hi!" + "Robert";
         assertEquals(message, this.message);
     }
-
 }
