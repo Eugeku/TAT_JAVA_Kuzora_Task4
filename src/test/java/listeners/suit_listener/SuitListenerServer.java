@@ -2,11 +2,12 @@ package listeners.suit_listener;
 
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
+import static listeners.utils.Logger.logInConsole;
 
 /**
  * Listener Class {@link SuitListenerServer}.
  * <p>
- * Listener Class SuitListenerServer is for logging start suite and stop suite. Destination resource: console.
+ * Listener Class SuitListenerServer is for logging start suite and stop suite.
  * <i>This Class is a member of the {@link listeners.suit_listener}
  * package.</i>
  */
@@ -25,7 +26,8 @@ public class SuitListenerServer implements ISuiteListener {
      */
     @Override
     public void onStart(ISuite iSuite) {
-        System.out.printf("%s: %s; %s: %s\n\r", SUITE_NAME, iSuite.getName(), SUITE_STATUS, STATUS_START_SUITE);
+        String logMessage = String.format("%s: %s; %s: %s\n\r", SUITE_NAME, iSuite.getName(), SUITE_STATUS, STATUS_START_SUITE);
+        logInConsole(logMessage);
     }
 
     /**
@@ -37,6 +39,15 @@ public class SuitListenerServer implements ISuiteListener {
      */
     @Override
     public void onFinish(ISuite iSuite) {
-        System.out.printf("%s: %s; %s: %s\n\r", SUITE_NAME, iSuite.getName(), SUITE_STATUS, STATUS_FINISH_SUITE);
+        String logMessage = String.format("%s: %s; %s: %s\n\r", SUITE_NAME, iSuite.getName(), SUITE_STATUS, STATUS_FINISH_SUITE);
+        logInConsole(logMessage);
     }
+
+    /**
+     * Private method logInConsole.
+     * <p>
+     * Method logs info in console.
+     *
+     * @param logMessage logMessage
+     */
 }

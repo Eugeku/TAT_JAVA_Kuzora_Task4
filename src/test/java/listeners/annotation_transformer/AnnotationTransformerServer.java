@@ -5,11 +5,12 @@ import org.testng.annotations.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import static listeners.utils.Logger.logInConsole;
 
 /**
  * Listener Class {@link AnnotationTransformerServer}.
  * <p>
- * Listener Class AnnotationTransformerServer is for logging annotations were used in each test methods. Destination resource: console.
+ * Listener Class AnnotationTransformerServer is for logging annotations were used in each test methods.
  * <i>This Class is a member of the {@link listeners.annotation_transformer}
  * package.</i>
  */
@@ -30,9 +31,11 @@ public class AnnotationTransformerServer implements IAnnotationTransformer {
     @Override
     public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method) {
         Annotation[] annotation = method.getAnnotations();
-        System.out.printf("%s %s:\n\r", LIST_OF_ANNOTATIONS, method.getName());
+        String logMessage = String.format("%s %s:\n\r", LIST_OF_ANNOTATIONS, method.getName());
+        logInConsole(logMessage);
         for (Annotation anno : annotation) {
-            System.out.printf("%s %s\n\r", TAB, anno.annotationType().getSimpleName());
+            logMessage = String.format("%s %s\n\r", TAB, anno.annotationType().getSimpleName());
+            logInConsole(logMessage);
         }
     }
 }

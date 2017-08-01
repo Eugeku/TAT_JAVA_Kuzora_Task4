@@ -4,11 +4,12 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import java.text.SimpleDateFormat;
+import static listeners.utils.Logger.logInConsole;
 
 /**
  * Listener Class {@link TestListenerServer}.
  * <p>
- * Listener Class TestListenerServer is for logging start test and stop test. Destination resource: console.
+ * Listener Class TestListenerServer is for logging start test and stop test.
  * <i>This Class is a member of the {@link listeners.test_listener}
  * package.</i>
  */
@@ -30,49 +31,53 @@ public class TestListenerServer implements ITestListener {
     /**
      * Listener method onTestStart.
      * <p>
-     * Method logs info in console about starting method test.
+     * Method logs info about starting method test.
      *
      * @param iTestResult object of {@link ITestResult} type
      */
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        System.out.printf("%s: %s; %s: %s; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), STATUS, STATUS_START_METHOD);
+        String logMessage = String.format("%s: %s; %s: %s; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), STATUS, STATUS_START_METHOD);
+        logInConsole(logMessage);
     }
 
     /**
      * Listener method onTestSuccess.
      * <p>
-     * Method logs info in console about passing method test.
+     * Method logs info about passing method test.
      *
      * @param iTestResult object of {@link ITestResult} type
      */
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.printf("%s: %s; %s: %s; %s: %s ms; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), DURATION, getTimeOfExecution(iTestResult), STATUS, STATUS_SUCCESS_METHOD);
+        String logMessage = String.format("%s: %s; %s: %s; %s: %s ms; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), DURATION, getTimeOfExecution(iTestResult), STATUS, STATUS_SUCCESS_METHOD);
+        logInConsole(logMessage);
     }
 
     /**
      * Listener method onTestFailure.
      * <p>
-     * Method logs info in console about failing method test.
+     * Method logs info about failing method test.
      *
      * @param iTestResult object of {@link ITestResult} type
      */
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.printf("%s: %s; %s: %s; %s: %s ms; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), DURATION, getTimeOfExecution(iTestResult), STATUS, STATUS_FAILURE_METHOD);
+        String logMessage = String.format("%s: %s; %s: %s; %s: %s ms; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), DURATION, getTimeOfExecution(iTestResult), STATUS, STATUS_FAILURE_METHOD);
+        logInConsole(logMessage);
     }
 
     /**
      * Listener method onTestFailure.
      * <p>
-     * Method logs info in console about skipping method test.
+     * Method logs info about skipping method test.
      *
      * @param iTestResult object of {@link ITestResult} type
      */
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.printf("%s: %s; %s: %s; %s: %s ms; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), DURATION, getTimeOfExecution(iTestResult), STATUS, STATUS_SKIPPED_METHOD);
+        String logMessage = String.format("%s: %s; %s: %s; %s: %s ms; %s: %s\n\r", CLASS_NAME, iTestResult.getTestClass().getName(), METHOD_NAME, iTestResult.getMethod().getMethodName(), DURATION, getTimeOfExecution(iTestResult), STATUS, STATUS_SKIPPED_METHOD);
+        logInConsole(logMessage);
     }
 
     /**
@@ -89,26 +94,28 @@ public class TestListenerServer implements ITestListener {
     /**
      * Listener method onStart.
      * <p>
-     * Method logs info in console about starting test.
+     * Method logs info about starting test.
      *
      * @param iTestContext object of {@link ITestContext} type
      */
     @Override
     public void onStart(ITestContext iTestContext) {
-        System.out.printf("%s: %s; %s: %s\n\r", TEST_NAME, iTestContext.getName(), STATUS, STATUS_START_TEST);
+        String logMessage = String.format("%s: %s; %s: %s\n\r", TEST_NAME, iTestContext.getName(), STATUS, STATUS_START_TEST);
+        logInConsole(logMessage);
     }
 
     /**
      * Listener method onFinish.
      * <p>
-     * Method logs info in console about finishing test.
+     * Method logs info about finishing test.
      *
      * @param iTestContext object of {@link ITestContext} type
      */
     @Override
     public void onFinish(ITestContext iTestContext) {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SS");
-        System.out.printf("%s: %s; %s: %s; %s: %s | %s: %s\n\r", TEST_NAME, iTestContext.getName(), STATUS, STATUS_FINISH_TEST, START_TIME, dt.format(iTestContext.getStartDate()), FINISH_TIME, dt.format(iTestContext.getEndDate()));
+        String logMessage = String.format("%s: %s; %s: %s; %s: %s | %s: %s\n\r", TEST_NAME, iTestContext.getName(), STATUS, STATUS_FINISH_TEST, START_TIME, dt.format(iTestContext.getStartDate()), FINISH_TIME, dt.format(iTestContext.getEndDate()));
+        logInConsole(logMessage);
     }
 
     /**
