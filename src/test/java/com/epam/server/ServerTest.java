@@ -1,27 +1,41 @@
 package com.epam.server;
 
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
 /**
  * Test Class {@link ServerTest}.
  * <p>
  * Test Class ServerTest is for testing multithreading requets to server.
+ * <i>This Class is a member of the {@link com.epam.server}
+ * package.</i>
  */
 public class ServerTest {
+    /**
+     * Unique server port. Using not yet implemented.
+     */
     private static final int SERVER_PORT = 1;
+    /**
+     * Var of {@link Server} type;
+     */
     private Server server;
 
+    /**
+     * BeforeClass method beforeClass.
+     * <p>
+     * Method creates new Server using unique {@link #SERVER_PORT} and also starts this server.
+     */
     @BeforeClass
     public void beforeClass() {
         server = new Server(SERVER_PORT);
         server.serverStart();
     }
 
+    /**
+     * AfterClass method afterClass.
+     * <p>
+     * Method stops {@link #server} and sets it on null.
+     */
     @AfterClass
     public void afterClass() {
         server.serverStop();

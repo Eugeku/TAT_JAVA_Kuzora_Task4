@@ -60,6 +60,13 @@ public class Server {
     private ConcurrentHashMap<Integer, Integer> userIps = new ConcurrentHashMap<>();
     private ExecutorService pool = Executors.newCachedThreadPool();
 
+    /**
+     * Constructor Server.
+     * <p>
+     * Magic inside.
+     *
+     * @param port server port
+     */
     public Server(int port) {
         this.port = port;
         serverRun = new Thread(new Runnable() {
@@ -91,7 +98,7 @@ public class Server {
      * <p>
      * Starting sever,this method changes {@link #flagServerRunning} on true.
      *
-     * @return state of {@link #flagServerRunning}.
+     * @return state of {@link #flagServerRunning}
      */
     public boolean serverStart() {
         flagServerRunning = true;
@@ -104,7 +111,7 @@ public class Server {
      * <p>
      * Stopping sever,this method changes {@link #flagServerRunning} on false.
      *
-     * @return state of {@link #flagServerRunning}.
+     * @return state of {@link #flagServerRunning}
      */
     public boolean serverStop() {
         flagServerRunning = false;
