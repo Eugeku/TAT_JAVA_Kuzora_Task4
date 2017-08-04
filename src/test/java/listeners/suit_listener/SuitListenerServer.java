@@ -42,12 +42,4 @@ public class SuitListenerServer implements ISuiteListener {
         String logMessage = String.format("%s: %s; %s: %s\n\r", SUITE_NAME, iSuite.getName(), SUITE_STATUS, STATUS_FINISH_SUITE);
         logInConsole(logMessage);
     }
-
-    /**
-     * Private method logInConsole.
-     * <p>
-     * Method logs info in console.
-     *
-     * @param logMessage logMessage
-     */
 }
